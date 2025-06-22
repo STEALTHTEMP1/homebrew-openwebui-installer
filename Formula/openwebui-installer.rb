@@ -2,26 +2,23 @@ class OpenwebuiInstaller < Formula
   desc "Easy installer and manager for Open WebUI - User-friendly AI Interface"
   homepage "https://github.com/STEALTHTEMP1/openwebui-installer"
   url "https://github.com/STEALTHTEMP1/openwebui-installer/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "9a854ae4373b42bfda386071d7a5cc92331befe12312f32875ddab075923a14e"
+  sha256 "55a33937b6f85e292c2ab3e3cf51cc803abac2f628bf31b9d21bdb1b8395634e"
   license "MIT"
   head "https://github.com/STEALTHTEMP1/openwebui-installer.git", branch: "main"
 
-  depends_on "python@3.11"
-  depends_on "git"
   depends_on "curl"
+  depends_on "git"
+  depends_on "python@3.11"
 
   def install
-    # Create a libexec directory for the Python environment
     libexec.install Dir["*"]
 
-    # Create wrapper script
     (bin/"openwebui-installer").write <<~EOS
       #!/bin/bash
       cd "#{libexec}"
       exec python3 install.py "$@"
     EOS
 
-    # Make the wrapper executable
     chmod 0755, bin/"openwebui-installer"
   end
 
@@ -37,10 +34,6 @@ class OpenwebuiInstaller < Formula
     ohai "  openwebui-installer uninstall  # Remove Open WebUI"
   end
 
-  test do
-    assert_match "Open WebUI Installer", shell_output("#{bin}/openwebui-installer --version")
-  end
-
   def caveats
     <<~EOS
       Open WebUI Installer has been installed to:
@@ -54,5 +47,9 @@ class OpenwebuiInstaller < Formula
       For more information, visit:
         https://github.com/STEALTHTEMP1/openwebui-installer
     EOS
+  end
+
+  test do
+    assert_match "Open WebUI Installer", shell_output("#{bin}/openwebui-installer --version")
   end
 end
