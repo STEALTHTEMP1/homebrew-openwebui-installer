@@ -1,8 +1,8 @@
 class OpenwebuiInstaller < Formula
   desc "Easy installer and manager for Open WebUI - User-friendly AI Interface"
   homepage "https://github.com/STEALTHTEMP1/openwebui-installer"
-  url "https://github.com/STEALTHTEMP1/openwebui-installer/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "55a33937b6f85e292c2ab3e3cf51cc803abac2f628bf31b9d21bdb1b8395634e"
+  url "https://github.com/STEALTHTEMP1/openwebui-installer/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "dd88b03c1c0f40df9116a23aff77c4e41d021c134e9b189265a065b4fbbcbe22"
   license "MIT"
   head "https://github.com/STEALTHTEMP1/openwebui-installer.git", branch: "main"
 
